@@ -1,0 +1,359 @@
+<style type="text/css">
+#selector{
+  padding: 1.9%;
+  border: 4px solid #7DA5E0;
+  width: -moz-calc(50% - 10px);
+  width: -webkit-calc(50% - 10px);
+  width: calc(50% - 10px);
+}
+    </style>
+
+<form>
+<h1>
+    Customer Detail
+</h1>
+
+<form class="form-horizontal col-md-8 col-md-offset-2" ng-submit="customer.saveCustomer()">
+	
+	
+	<div class="form-group">
+		<label class="control-label">ID</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.id">
+	</div>
+	
+	<h4>Who recommended our services to you?</h4>
+	<div id="selector"  class="form-group">
+		<div>
+			<input type="radio" ng-model="customer.customerData.recommendation" value="word_of_mouth"/>
+			<label>Relative/acquaitance/friend</label>
+		</div>
+		<div>
+			<input type="radio" ng-model="customer.customerData.recommendation" value="physician"/>
+			<label>Physician</label>
+		</div>
+		<div>
+			<input type="radio" ng-model="customer.customerData.recommendation" value="government"/>
+			<label>Embassy/government</label>
+		</div>
+		<div>
+			<input type="radio" ng-model="customer.customerData.recommendation" value="self"/>
+			<label>Self (website/research)</label>
+		</div>
+		<div>
+			<input type="radio" ng-model="customer.customerData.recommendation" value="other"/>
+			<label>Other</label>
+		</div>
+	</div>
+  <br/>
+  
+  
+		<div id="selector" class="form-group">
+	<h4>Patient Information</h4>
+		<label class="control-label">First Name</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.first_name">
+		<label class="control-label">Middle Name</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.middle_name">
+		<label class="control-label">Last Name</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.last_name">	
+	<div class="form-group">
+		<label>Gender</label>
+		<div>
+			<input type="radio" ng-model="customer.customerData.gender" value="male"/>
+			<label>Male</label>
+		</div>
+		<div>
+			<input type="radio" ng-model="customer.customerData.gender" value="other"/>
+			<label>Female</label>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div>
+			<label>Date of birth</label>
+		</div>
+		<div class="col-md-4">
+			<input class="form-control" type="number" min="1" max="31" step="1" ng-model="customer.customerData.day_of_birth"/>
+			<label>DD</label>
+		</div>
+		<div class="col-md-4">
+			<input class="form-control" type="number" min="1" max="12" step="1" ng-model="customer.customerData.month_of_birth"/>
+			<label>MM</label>
+		</div>
+		<div class="col-md-4">
+			<input class="form-control" type="number" min="1900" max="2016" step="1" ng-model="customer.customerData.year_of_birth"/>
+			<label>YY</label>
+		</div>
+	</div>
+	</div>
+  <br/>
+  
+  
+  	<div id="selector" class="form-group">
+	<h4>Permanent Address</h4>
+		<label class="control-label">Street Address</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.street_address">
+		<label class="control-label">Address Line 2</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.street_address_2">
+		<label class="control-label">City</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.city">	
+		<label class="control-label">State, Province, Region</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.state_province_region">
+		<label class="control-label">Zip Code</label>
+		<input type="number" class="form-control" ng-model="customer.customerData.zip_code">
+		<label class="control-label">Country</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.country">		
+	</div>
+	<br/>
+  
+  
+  
+  	<div id="selector" class="form-group">
+	<h4>Contact Information</h4>
+		<label class="control-label">Telephone Number</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.phone_number">
+		<label class="control-label">Home/Business Fax</label>
+		<input type="number" class="form-control" ng-model="customer.customerData.fax">
+		<label class="control-label">Email</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.email">	
+		<label class="control-label">Contact's name (if different from patient)</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.contact_name">
+		<label class="control-label">Contact's Telephone Number</label>
+		<input type="number" class="form-control" ng-model="customer.customerData.contact_phone_number">	
+		<label class="control-label">Contact's Email</label>
+		<input type="text" class="form-control" ng-model="customer.customerData.contact_email">	
+	</div>
+	<br/>
+  
+  
+ <div id="selector" class="form-group">
+	<h4>Clinical information</h4>
+
+		<label>Diagnosis information (list all your diagnosis)</label>
+		<textarea class="form-control" ng-model="customer.customerData.diagnosis_information" rows="5"></textarea>	
+	<div class="form-group">
+		<label>Patient clinical status</label>
+		<input class="form-control" ng-model="customer.customerData.clinical_status" />
+	</div>
+	
+	<div class="form-group">
+		<label>Involved clinical department or specialties</label>
+		<textarea class="form-control" ng-model="customer.customerData.departments_specialists" rows="2"></textarea>
+	</div>
+	
+	<div class="form-group">
+		<label>Special requests regarding diagnosis or treatment</label>
+		<textarea class="form-control" ng-model="customer.customerData.special_requests" rows="5"></textarea>
+	</div>
+	
+	<div class="form-group">
+		<label>If you are under any medications please specify</label>
+		<textarea class="form-control" ng-model="customer.customerData.current_medications" rows="5"></textarea>
+	</div>
+	
+	<div class="input-group form-group col-md-6">
+		<label>Current weight (kg)</label>
+		<input class="form-control" ng-model="customer.customerData.weight" />
+	</div>
+	
+	<div class="input-group form-group col-md-6">
+		<label>Current height (cm)</label>
+		<input class="form-control" ng-model="customer.customerData.height" />
+	</div>
+	
+	
+	<div class="form-group">
+		<label>Allergies to medications, food or latex?</label>
+		<div>
+		<input type="radio" name="is_allergic" ng-model="customer.customerData.is_allergic" ng-value="true"/>
+		<label>Yes</label>
+		<input type="radio" name="is_allergic" ng-model="customer.customerData.is_allergic" ng-value="false"/>
+		<label>No</label>
+		</div>
+		<label>If yes please specify</label>
+		<textarea class="form-control" ng-model="customer.customerData.allergy_details" rows="5"></textarea>
+	</div>
+  </div>
+  <br/>
+  
+   
+   
+   
+	<div id="selector" class="form-group">	
+	<h4>Previous treatments received</h4>
+		<label>Radiation</label>
+		<div>
+		<input type="radio" name="has_used_radiation" ng-model="customer.customerData.has_used_radiation" ng-value="true"/>
+		<label>Yes</label>
+		<input type="radio" name="has_used_radiation" ng-model="customer.customerData.has_used_radiation" ng-value="false"/>
+		<label>No</label>
+		<label>If yes please specify</label>
+		<textarea class="form-control" ng-model="customer.customerData.radiation_details" rows="5"></textarea>
+	</div>
+	
+	<div class="form-group">
+		<label>Chemotherapy</label>
+		<div>
+		<input type="radio" name="has_used_chemotherapy" ng-model="customer.customerData.has_used_chemotherapy" ng-value="true"/>
+		<label>Yes</label>
+		<input type="radio" name="has_used_chemotherapy" ng-model="customer.customerData.has_used_chemotherapy" ng-value="false"/>
+		<label>No</label>
+		</div>
+		<label>If yes please specify</label>
+		<textarea class="form-control" ng-model="customer.customerData.chemotherapy_details" rows="5"></textarea>
+	</div>
+	
+	<div class="form-group">
+		<label>Previous Surgery</label>
+		<div>
+		<input type="radio" name="has_previous_surgery" ng-model="customer.customerData.has_previous_surgery" ng-value="true"/>
+		<label>Yes</label>
+		<input type="radio" name="has_previous_surgery" ng-model="customer.customerData.has_previous_surgery" ng-value="false"/>
+		<label>No</label>
+		</div>
+		<label>If yes please specify</label>
+		<textarea class="form-control" ng-model="customer.customerData.previous_surgery_details" rows="5"></textarea>
+	</div>
+	
+	<div class="form-group">
+		<div>
+		<label>Possible treatment time</label>
+		</div>
+		<input type="radio" name="possible_treatment_timel" ng-model="customer.customerData.possible_treatment_time" value="ASAP"/>
+		<label>ASAP</label>
+		<input type="radio" name="possible_treatment_timel" ng-model="customer.customerData.possible_treatment_time" value="3mo"/>
+		<label>3 months</label>
+		<input type="radio" name="possible_treatment_timel" ng-model="customer.customerData.possible_treatment_time" value="6mo"/>
+		<label>6 months</label>
+		<input type="radio" name="possible_treatment_timel" ng-model="customer.customerData.possible_treatment_time" value=""/>
+		<label>Undefined</label>
+	</div>
+	
+	<div class="form-group">
+		<label>Referring physician information</label>
+		<div>
+			<label>Referring physician name</label>
+			<input class="form-control" ng-model="customer.customerData.referring_physician_name"/>
+		</div>
+		<div>
+			<label>Specialty offer telephone number</label>
+			<input class="form-control" type="number" ng-model="customer.customerData.specialty_offer_telephone_number"/>
+		</div>
+		<div>
+			<label>Fax number</label>
+			<input class="form-control" type="number" ng-model="customer.customerData.referring_fax_number"/>
+		</div>
+		<div>
+			<label>Emergency telephone number</label>
+			<input class="form-control" type="number" ng-model="customer.customerData.referring_emergency_telephone_number"/>
+		</div>
+		<div>
+			<label>Email</label>
+			<input class="form-control" ng-model="customer.customerData.referring_email"/>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label>Name of physician selected if applicable</label>
+		<input class="form-control" ng-model="customer.customerData.name_of_physician"/>
+	</div>
+  </div>
+  <br/>
+  
+  
+  
+  	<div id="selector" class="form-group">
+	<h4>Patient services information. Will you need assitance with the following?</h4>
+		<div>
+		<label>Interpreter services</label>
+		</div>
+		<input type="radio" name="interpreter_services_required" ng-model="customer.customerData.interpreter_services_required" ng-value="true"/>
+		<label>Yes</label>
+		<input type="radio" name="interpreter_services_required" ng-model="customer.customerData.interpreter_services_required" ng-value="false"/>
+		<label>No</label>	
+	<div class="form-group">
+		<label>Languages you speak</label>
+		<input class="form-control" ng-model="customer.customerData.languages_spoken"/>
+	</div>
+	
+	<div class="form-group">
+		<div>
+		<label>Hotel acommodation</label>
+		</div>
+		
+		<div>
+			<label>Number of guests travelling with you</label>
+			<input class="form-control" type="number" ng-model="customer.customerData.number_accompanying_guests"/>
+		</div>
+		<div>
+			<label>Number of hotel rooms needed</label>
+			<input class="form-control" type="number" ng-model="customer.customerData.number_hotel_rooms"/>
+		</div>
+		<div>
+			<label>Hotel rating preference</label>
+			<input class="form-control" ng-model="customer.customerData.hotel_rating_preference"/>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div>
+		<label>Transportation from airport to hotel or hospital</label>
+		</div>
+		<input type="radio" name="transportation_required" ng-model="customer.customerData.transportation_required" ng-value="true"/>
+		<label>Yes</label>
+		<input type="radio" name="transportation_required" ng-model="customer.customerData.transportation_required" ng-value="false"/>
+		<label>No</label>
+	</div>
+	
+	<div class="form-group">
+		<label>Special diet during your stay</label>
+		<div>
+		<input type="radio" name="special_diet" ng-model="customer.customerData.special_diet" ng-value="true"/>
+		<label>Yes</label>
+		<input type="radio" name="special_diet" ng-model="customer.customerData.special_diet" ng-value="false"/>
+		<label>No</label>
+		</div>
+		<label>If yes please specify</label>
+		<textarea class="form-control" ng-model="customer.customerData.special_diet_details" rows="5"></textarea>
+	</div>
+  </div>
+  <br/>
+  
+  
+  	<div id="selector" class="form-group">
+	<h4>Financial Eligibility</h4>
+	<p>
+		For self-patients requiring hospitalization, payment in advance is required.
+		For some insurers and embassy cases we accept letters of guarantee instead
+		of advanced payment.
+	</p>
+		<div>
+		<label>Method of payment</label>
+		</div>
+		<input type="radio" name="payment_method" ng-model="customer.customerData.payment_method" value="self"/>
+		<label>Self (cash, credit card, wire transfer)</label>
+		<input type="radio" name="payment_method" ng-model="customer.customerData.payment_method" value="international_insurance"/>
+		<label>International insurance (Letter of guarantee)</label>
+	</div>
+	
+	<h4>If you would like to provide comments, please do so here.</h4>
+	<textarea class="form-control" rows="4" ng-model="customer.customerData.comments"/>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-6">
+			<button type="submit" class="btn btn-success btn-lg btn-block">Update User</button>
+		</div>
+	</div>
+
+</form>
+
+<div class="row show-hide-message" ng-show="customer.message">
+	<div class="col-sm-6 col-sm-offset-2">
+		
+		<div class="alert alert-info">
+			{{ customer.message }}
+		</div>
+
+	</div>
+</div>
+</form>
+
